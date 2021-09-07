@@ -1,5 +1,6 @@
 package com.samuellima.forum_alura.controller
 
+import com.samuellima.forum_alura.dto.TopicByCategoryDto
 import com.samuellima.forum_alura.dto.TopicView
 import com.samuellima.forum_alura.dto.form.CreateTopicForm
 import com.samuellima.forum_alura.dto.form.UpdateTopicForm
@@ -80,4 +81,12 @@ class TopicController(
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build()
     }
+
+    @GetMapping("/report")
+    fun report(): ResponseEntity<List<TopicByCategoryDto>> {
+        val topic = topicService.report()
+
+        return ResponseEntity.ok(topic)
+    }
+
 }

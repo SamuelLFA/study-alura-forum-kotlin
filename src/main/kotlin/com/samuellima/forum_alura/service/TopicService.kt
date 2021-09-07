@@ -1,5 +1,6 @@
 package com.samuellima.forum_alura.service
 
+import com.samuellima.forum_alura.dto.TopicByCategoryDto
 import com.samuellima.forum_alura.dto.form.UpdateTopicForm
 import com.samuellima.forum_alura.exception.NotFoundException
 import com.samuellima.forum_alura.model.Topic
@@ -60,5 +61,9 @@ class TopicService(
     override fun delete(id: Long) {
         val topicToDelete = getById(id)
         topicRepository.delete(topicToDelete)
+    }
+
+    fun report(): List<TopicByCategoryDto> {
+        return topicRepository.report()
     }
 }
