@@ -39,13 +39,13 @@ class TopicService(
         topicRepository.save(model)
     }
 
-    override fun update(id: Long, form: UpdateTopicForm): Topic {
+    override fun update(id: Long, model: UpdateTopicForm): Topic {
         val oldTopic = getById(id)
 
         val topicUpdated = Topic(
             oldTopic.id,
-            form.title,
-            form.message,
+            model.title,
+            model.message,
             oldTopic.createdAt,
             oldTopic.course,
             oldTopic.author,
